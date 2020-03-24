@@ -1,0 +1,13 @@
+import React from 'react'
+
+const UserInfo = ({name, email, gen}) => {
+    return (
+        <div>
+             <h3>Name:{name}</h3>
+              <p>Email:{email}</p>
+              <h3>Gen{gen}</h3>
+        </div>
+    );
+};
+
+export default UserInfo;  
