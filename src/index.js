@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+import { thunk } from 'redux-thunk';
+import usersReducer from "./store/usersReducer";
+
+const store = createStore(usersReducer);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
