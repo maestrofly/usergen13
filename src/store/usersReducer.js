@@ -21,11 +21,11 @@ const initialState = {
 
 const userReducer = (state = initialState, action) =>{
      switch (action.type) {
-         case "ADD_USER":
+         case "ADD_USER":  
             const newUser= {
-                name:this.state.name,
-                email:this.state.email,
-                gen:this.state.gen
+                name: action.payload.name,
+                email: action.payload.email,
+                gen: action.payload.gen
               };
               return {...state, users:[...state.users, newUser]}
             default:
