@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { addUser } from './store/usersActions';
 import UsersForm from './components/UsersForm';
 import UserInfo from './components/UserInfo';
  export class App extends Component {
@@ -10,9 +11,7 @@ import UserInfo from './components/UserInfo';
 
 
    addNewUser=(newUser) => { 
-     this.setState({
-       users:[...this.state.users,newUser]
-     });
+     this.props.addUser(newUser)
    };
 
   
@@ -40,6 +39,10 @@ import UserInfo from './components/UserInfo';
 
 const mapStateToProps = (state) => ({
   users: state.users
-})
+});
 
-export default connect(mapStateToProps) (App);
+const mapDispatchToProps = {
+addUser: addUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (App);
