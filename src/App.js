@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { addUser } from './store/usersActions';
+import { addUser, deleteUser } from './store/usersActions';
 import UsersForm from './components/UsersForm';
 import UserInfo from './components/UserInfo';
  export class App extends Component {
@@ -10,8 +10,12 @@ import UserInfo from './components/UserInfo';
 
 
 
-   addNewUser=(newUser) => { 
+   addNewUser= newUser => { 
      this.props.addUser(newUser)
+   };
+
+   deleteUser = user_id  => {
+     this.props.deleteUser(user_id);
    };
 
   
@@ -25,10 +29,12 @@ import UserInfo from './components/UserInfo';
         {this.props.users.map((user, index)=>{
           return(
            <UserInfo 
-           key={index} 
+           key={user.id}
+           id={user.id} 
            name={user.name}
             email={user.email} 
-            gen={user.gen} 
+            gen={user.gen}
+            removeUser={this.deleteUser} 
             />
           );
         })}
@@ -42,7 +48,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-addUser: addUser
+addUser: addUser,
+deleteUser: deleteUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (App);

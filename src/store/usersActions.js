@@ -6,3 +6,12 @@
     }
 }
 
+
+export const deleteUser = (user_id) => {
+    return{
+        
+            type: 'DELETE_USER',
+            payload: user_id
+    }
+}
+
