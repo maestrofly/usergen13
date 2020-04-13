@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const UserInfo = ({name, email, gen, id, removeUser}) => {
     const handleClick = () => {
@@ -10,6 +11,7 @@ const UserInfo = ({name, email, gen, id, removeUser}) => {
               <p>Email:{email}</p>
               <h3>Gen{gen}</h3>
               <button onClick={handleClick}>Remove User</button>
+              <Link to={`/edit/${id}`}>Edit User</Link>
               <hr />
         </div>
     );

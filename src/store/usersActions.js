@@ -15,3 +15,14 @@ export const deleteUser = (user_id) => {
     }
 }
 
+
+export const editUser = (user_id, updated_Info) => {
+    return{
+        
+            type: 'EDIT_USER',
+            user_id: user_id,
+            updated_Info
+    }
+}
+
+

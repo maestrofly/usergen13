@@ -1,9 +1,10 @@
 import './App.css';
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { addUser, deleteUser } from './store/usersActions';
+import { addUser, deleteUser, } from './store/usersActions';
 import UsersForm from './components/UsersForm';
 import UserInfo from './components/UserInfo';
+// import EditForm from './components/EditForm';
  export class App extends Component {
   
 
