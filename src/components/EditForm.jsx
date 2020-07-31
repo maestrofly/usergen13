@@ -74,4 +74,4 @@ const mapDispatchToProps = {
   editUser: editUser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (EditForm);
+export default connect (mapStateToProps, mapDispatchToProps) (EditForm); 

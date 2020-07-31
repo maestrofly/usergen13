@@ -23,10 +23,22 @@ import UserInfo from './components/UserInfo';
 
   render() {
     return (
+          
+         <div className="container">
+           <div className="row">
+             <div className="col-md-6">
+
+                  <div className="App">
       
-      <div className="App">
         <UsersForm  addUser = {this.addNewUser}/> 
-        <div className= "App__User-info"></div>
+ 
+
+
+             </div>
+
+             
+             <div className="col-md-6">
+             <div className= "App__User-info"></div>
         {this.props.users.map((user, index)=>{
           return(
            <UserInfo 
@@ -40,6 +52,12 @@ import UserInfo from './components/UserInfo';
           );
         })}
       </div>
+             </div>
+           </div>
+         </div>
+     
+
+       
     )
   }
 }
