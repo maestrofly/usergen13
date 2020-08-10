@@ -1,29 +1,9 @@
 import { v4 as uuid } from 'uuid';
 
 const initialState = {
-    users:[
-        {
-        id: "1",    
-        name:"Derrick Darku",
-        email:"derrickdarku@gmaul.com",
-        gen:3
-      },
-      {
-        id: "2",
-       name:"Joseph Sundane",
-       email:"Joe@ymail.com",
-       gen:5
-     },
-     {  
-        id: "3",
-       name:"Sarah Graham",
-       email:"SaraG@yahoo.com",
-       gen:9
-     }
+    users:[],
 
-    ]
-
-}
+};
 
 const userReducer = (state = initialState, action) =>{
      switch (action.type) {
@@ -41,7 +21,7 @@ const userReducer = (state = initialState, action) =>{
                 return {...state, users: filteredUsers}
 
             case "EDIT_USER": 
-                 const updatedUserInfo = state.users.map(user => {
+                 const editedUsers = state.users.map(user => {
                    if (user.id === action.user_id) {
                        return {...user, ...action.updated_Info}
                    } else {
@@ -49,7 +29,9 @@ const userReducer = (state = initialState, action) =>{
                    }
                  
                 });
-                return {...state, users: updatedUserInfo}
+                return {...state, users: editedUsers}
+                case "SET_ALL_USERS":
+                  return{users: action.payload};
             default:
                 return state;
      }
