@@ -1,10 +1,18 @@
  export const addUser = (user) => {
-    return{
+    return (dispatch, state, {getFirestore})=>{
+            getFirestore()
+            .collection('users')
+            .add(user)
+            .then((doc)=>{
+               dispatch( {
         
-            type: 'ADD_USER',
-            payload: user
-    }
-}
+                type: 'ADD_USER',
+                payload: user,
+          })
+        });
+
+   }; 
+};
 
 
 export const deleteUser = (user_id) => {
