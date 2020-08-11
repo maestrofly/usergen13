@@ -12,12 +12,13 @@
 
 
 export const deleteUser = (user_id) => {
-    return{
-        
-            type: 'DELETE_USER',
-            payload: user_id
-    }
-}
+    return ( dispatch, state, {getFirestore})=>{
+            getFirestore()
+            .collection('users')
+            .doc(user_id)
+            .delete().then(()=>{})
+};
+};
 
 
 export const editUser = (user_id, updated_Info) => {
@@ -37,7 +38,8 @@ export const getAllUsers = () =>{
                 (snapshot) => {
              let users = [];
              snapshot.forEach((doc) => {
-                users.push(doc.data());
+                     
+                users.push({...doc.data(), id: doc.id});
              });
              console.log(users);
                dispatch({
