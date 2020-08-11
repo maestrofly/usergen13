@@ -22,11 +22,18 @@ export const deleteUser = (user_id) => {
 
 
 export const editUser = (user_id, updated_Info) => {
-    return{
-        
-            type: 'EDIT_USER',
-            user_id: user_id,
-            updated_Info:updated_Info,
+    return (dispatch, state, {getFirestore})=>{
+            getFirestore()
+            .collection('users')
+            .doc(user_id)
+            .set(updated_Info)
+            .then(()=>{
+
+            })
+            .catch((err)=>{
+
+            })
+
     };
 };
 
