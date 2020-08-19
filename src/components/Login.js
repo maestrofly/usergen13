@@ -1,19 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { registerWithEmail, loginWithGoogle } from '../store/authActions';
+import { loginWithEmail, loginWithGoogle } from '../store/authActions';
 
-function Register(props) {
+function Login(props) {
 
        const handleSubmit = (e) => {
             e.preventDefault();
             let email = e.target.elements.email.value;
             let password = e.target.elements.password.value;
-            props.registerWithEmail( email, password );
+            props.loginWithEmail(email, password);
+            
        }
         
        return (
         <div>
-            <h1>Register Now!!</h1>
+            <h1>Login</h1>
               <form onSubmit={ handleSubmit }>
                 <div>
                     <label>Email</label>
@@ -27,7 +28,8 @@ function Register(props) {
                  
                  <hr />
                   
-                  <button type = "submit">JOIN</button>
+                  <button type = "submit">Login</button>
+
 
                   <hr/>
                   <button onClick={props.loginWithGoogle}>
@@ -49,10 +51,10 @@ const mapStateToProps = () => {
 }
 
 const mapDispatchToProps = {
-     registerWithEmail, 
-     loginWithGoogle,
+ loginWithEmail,
+ loginWithGoogle,
 };
 
-export default connect( mapStateToProps, mapDispatchToProps )(Register);  
+export default connect( mapStateToProps, mapDispatchToProps )(Login);  
 
 
