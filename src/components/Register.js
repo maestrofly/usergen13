@@ -4,6 +4,9 @@ import { registerWithEmail, loginWithGoogle } from '../store/authActions';
 
 function Register(props) {
 
+    if (!props.auth.isLoaded) return null;
+    if (props.auth.uid) props.history.push('/');
+
        const handleSubmit = (e) => {
             e.preventDefault();
             let email = e.target.elements.email.value;
@@ -44,9 +47,11 @@ function Register(props) {
 }
 
 
-const mapStateToProps = () => {
-
-}
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth,
+    };
+  };
 
 const mapDispatchToProps = {
      registerWithEmail, 

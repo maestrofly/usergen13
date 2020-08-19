@@ -2,6 +2,7 @@ import './App.css';
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { addUser, deleteUser, getAllUsers } from './store/usersActions';
+import { logoutUser } from './store/authActions';
 import UsersForm from './components/UsersForm';
 import UserInfo from './components/UserInfo';
 // import EditForm from './components/EditForm';
@@ -31,7 +32,7 @@ import UserInfo from './components/UserInfo';
              <div className="col-md-6">
 
                   <div className="App">
-      
+         <button onClick={this.props.logoutUser}>Logout</button>
         <UsersForm  addUser = {this.addNewUser}/> 
  
 
@@ -75,7 +76,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
 addUser,
 deleteUser,
-getAllUsers
+getAllUsers,
+logoutUser,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (App);

@@ -11,7 +11,7 @@ const Router = () => {
         <BrowserRouter>   
 
          <ProtectRoute exact path="/"  component={App} />
-         <Route exact path="/edit/:id"  component={EditForm} />
+         <ProtectRoute exact path="/edit/:id"  component={EditForm} />
          <Route exact path="/register"  component={Register} />
          <Route exact path="/login"  component={Login} />
         </BrowserRouter>

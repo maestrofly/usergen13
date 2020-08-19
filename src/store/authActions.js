@@ -47,3 +47,18 @@ export const loginWithGoogle = ()=>{
         });
     };
 };
+
+export const logoutUser = () =>{
+    return (dispatch, state, {getFirebase}) => {
+        let firebase = getFirebase(); 
+        firebase
+          .auth()
+          .signOut()
+          .then((response)=>{
+            console.log(response)
+        })
+        .catch((err)=>{
+            console.log(err)
+        }); 
+    };
+};
