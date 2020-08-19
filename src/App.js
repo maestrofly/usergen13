@@ -64,9 +64,13 @@ import UserInfo from './components/UserInfo';
   }
 }
 
-const mapStateToProps = (state) => ({
-  users: state.users
-});
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    users: state.usersState.users,
+  };
+};
+
 
 const mapDispatchToProps = {
 addUser,
